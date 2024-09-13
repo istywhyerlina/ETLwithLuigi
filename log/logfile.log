@@ -1,0 +1,155 @@
+DEBUG: Checking if Extract_Salesdata() is complete
+INFO: Informed scheduler that task   Extract_Salesdata__99914b932b   has status   PENDING
+DEBUG: Checking if Extract_Productdata() is complete
+INFO: Informed scheduler that task   Extract_Productdata__99914b932b   has status   PENDING
+DEBUG: Checking if Scrape() is complete
+INFO: Informed scheduler that task   Scrape__99914b932b   has status   PENDING
+DEBUG: Checking if Parse() is complete
+DEBUG: Checking if Scrape() is complete
+INFO: Informed scheduler that task   Parse__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   Scrape__99914b932b   has status   PENDING
+DEBUG: Checking if Transform() is complete
+DEBUG: Checking if Parse() is complete
+DEBUG: Checking if Extract_Salesdata() is complete
+DEBUG: Checking if Extract_Productdata() is complete
+INFO: Informed scheduler that task   Transform__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   Extract_Productdata__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   Extract_Salesdata__99914b932b   has status   PENDING
+DEBUG: Checking if Scrape() is complete
+INFO: Informed scheduler that task   Parse__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   Scrape__99914b932b   has status   PENDING
+DEBUG: Checking if Load() is complete
+DEBUG: Checking if Transform() is complete
+INFO: Informed scheduler that task   Load__99914b932b   has status   PENDING
+DEBUG: Checking if Parse() is complete
+DEBUG: Checking if Extract_Salesdata() is complete
+DEBUG: Checking if Extract_Productdata() is complete
+INFO: Informed scheduler that task   Transform__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   Extract_Productdata__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   Extract_Salesdata__99914b932b   has status   PENDING
+DEBUG: Checking if Scrape() is complete
+INFO: Informed scheduler that task   Parse__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   Scrape__99914b932b   has status   PENDING
+INFO: Done scheduling tasks
+INFO: Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 6
+INFO: [pid 24531] Worker Worker(salt=6155563649, workers=1, host=Erlina, username=istywhyerlina, pid=24531) running   Extract_Salesdata()
+ERROR: [pid 24531] Worker Worker(salt=6155563649, workers=1, host=Erlina, username=istywhyerlina, pid=24531) failed    Extract_Salesdata()
+Traceback (most recent call last):
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "/home/istywhyerlina/fp_introtoDE/scrape.py", line 22, in run
+    engine.extract_salesdata(self.db_url,self.output().path)
+  File "/home/istywhyerlina/fp_introtoDE/engine.py", line 49, in extract_salesdata
+    sales_data.to_csv(extract_path, sep=';',index=False)
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'raw'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   Extract_Salesdata__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 6
+INFO: [pid 24531] Worker Worker(salt=6155563649, workers=1, host=Erlina, username=istywhyerlina, pid=24531) running   Extract_Productdata()
+ERROR: [pid 24531] Worker Worker(salt=6155563649, workers=1, host=Erlina, username=istywhyerlina, pid=24531) failed    Extract_Productdata()
+Traceback (most recent call last):
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "/home/istywhyerlina/fp_introtoDE/scrape.py", line 32, in run
+    engine.extract_productdata(self.source,self.output().path)
+  File "/home/istywhyerlina/fp_introtoDE/engine.py", line 20, in extract_productdata
+    df.to_csv(extract_path, sep=',',index=False)
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'raw'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   Extract_Productdata__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 6
+INFO: [pid 24531] Worker Worker(salt=6155563649, workers=1, host=Erlina, username=istywhyerlina, pid=24531) running   Scrape()
+ERROR: [pid 24531] Worker Worker(salt=6155563649, workers=1, host=Erlina, username=istywhyerlina, pid=24531) failed    Scrape()
+Traceback (most recent call last):
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "/home/istywhyerlina/fp_introtoDE/scrape.py", line 43, in run
+    engine.scraping(self.keyword,self.output().path)
+  File "/home/istywhyerlina/fp_introtoDE/engine.py", line 63, in scraping
+    browser=p.chromium.launch(headless=False)
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/playwright/sync_api/_generated.py", line 14157, in launch
+    self._sync(
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py", line 95, in launch
+    Browser, from_channel(await self._channel.send("launch", params))
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/playwright/_impl/_connection.py", line 59, in send
+    return await self._connection.wrap_api_call(
+  File "/home/istywhyerlina/fp_introtoDE/venv/lib/python3.10/site-packages/playwright/_impl/_connection.py", line 514, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+<launching> /home/istywhyerlina/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXXWZ2Ghn --remote-debugging-pipe --no-startup-window
+  - <launched> pid=24595
+  - [pid=24595][err] [24595:24595:0913/131306.603390:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=24595][err] [24595:24595:0913/131306.603466:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   Scrape__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Done
+DEBUG: There are no more tasks to run at this time
+DEBUG: There are 6 pending tasks possibly being run by other workers
+DEBUG: There are 6 pending tasks unique to this worker
+DEBUG: There are 6 pending tasks last scheduled by this worker
+INFO: Worker Worker(salt=6155563649, workers=1, host=Erlina, username=istywhyerlina, pid=24531) was stopped. Shutting down Keep-Alive thread
+INFO: 
+===== Luigi Execution Summary =====
+
+Scheduled 6 tasks of which:
+* 3 failed:
+    - 1 Extract_Productdata()
+    - 1 Extract_Salesdata()
+    - 1 Scrape()
+* 3 were left pending, among these:
+    * 3 had failed dependencies:
+        - 1 Load()
+        - 1 Parse()
+        - 1 Transform()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
