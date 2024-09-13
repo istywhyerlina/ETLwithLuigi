@@ -8,7 +8,7 @@ To make it more efficient, Data Engineer needed to build a data warehouse (Incwo
 ## ETL Pipeline Design
 
 This picture below depict how ETL process needed. We need to extract data from several sources, then transforming it so the data has correct format, enriched information etc before we load it into our datawarehouse. 
-![](pic/untitled.png)
+![](pic/Untitled.png)
  
 ### Extract 
 
