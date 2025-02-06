@@ -1,5 +1,7 @@
 # Final Project  -ETL Pipeline With Luigi
 
+Explanation video: https://www.youtube.com/watch?v=lZxHcXfD5EY
+
 ## Objectives
 
 Every team has their own data stored in different places and media. Sales team owns data and stored sales data in PosgreSQL wrapped in docker image. Product team owns data and stored in csv format. Data Science data needs data scraped from a website for them do NLP about title of advertisements in https://www.olx.co.id
